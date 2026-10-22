@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "plan_id": "demo-plan-001",
+  "target_date": "2030-01-02",
+  "source": "chatgpt_web",
+  "status": "CONFIRMED",
+  "created_at": "2030-01-01T21:00:00+08:00",
+  "items": [
+    {
+      "item_id": "study-block-1",
+      "source": "USER_ARRANGED",
+      "title": "Review one course topic",
+      "minutes": 45,
+      "time_hint": "evening",
+      "reason": "Example data only"
+    }
+  ],
+  "fixed_constraints": [],
+  "execution_order": ["study-block-1"],
+  "buffer_minutes": 15,
+  "warnings": []
+}

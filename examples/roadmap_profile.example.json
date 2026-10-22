@@ -1,0 +1,40 @@
+{
+  "profile_name": "Example roadmap (fictional demo; edit before use)",
+  "profile_version": 1,
+  "background_progress": {},
+  "stages": [
+    {"id":"A","title":"Foundations","order":1,"status":"IN_PROGRESS"},
+    {"id":"B","title":"Modeling","order":2,"prerequisites":["A"]},
+    {"id":"C","title":"Systems","order":3,"prerequisites":["B"]},
+    {"id":"D","title":"Evaluation","order":4,"prerequisites":["C"]},
+    {"id":"E","title":"Implementation","order":5,"prerequisites":["D"]},
+    {"id":"F","title":"Integration","order":6,"prerequisites":["E"]},
+    {"id":"G","title":"Verification","order":7,"prerequisites":["F"]},
+    {"id":"H","title":"Deployment","order":8,"prerequisites":["G"]},
+    {"id":"I","title":"Maintenance","order":9,"prerequisites":["H"]},
+    {"id":"J","title":"Capstone","order":10,"prerequisites":["I"]}
+  ],
+  "milestones": [
+    {"id":"A1","stage_id":"A","title":"Sample input basics","status":"IN_PROGRESS","recommended_task_ids":["foundation_task_1"]},
+    {"id":"A2","stage_id":"A","title":"Validation rules","prerequisite_ids":["A1"],"recommended_task_ids":["foundation_task_2"]},
+    {"id":"A3","stage_id":"A","title":"Sample analysis","prerequisite_ids":["A2"],"recommended_task_ids":["analysis_task_1","analysis_task_2"]},
+    {"id":"A4","stage_id":"A","title":"Repeatable procedures","prerequisite_ids":["A3"],"recommended_task_ids":["analysis_task_3"]},
+    {"id":"B1","stage_id":"B","title":"Model basics","recommended_task_ids":["modeling_task_1"]},
+    {"id":"B2","stage_id":"B","title":"Model comparison","prerequisite_ids":["B1"],"recommended_task_ids":["modeling_task_2"]},
+    {"id":"C1","stage_id":"C","title":"System description","recommended_task_ids":["systems_task_1"]},
+    {"id":"D1","stage_id":"D","title":"Quality checks","recommended_task_ids":["quality_task_1"]},
+    {"id":"E1","stage_id":"E","title":"Packaging","recommended_task_ids":["implementation_task_1"]}
+  ],
+  "tasks": [
+    {"id":"foundation_task_1","milestone_id":"A1","domain":"Foundations","title":"Sort a small set of sample records","estimated_minutes":45,"intensity":"LIGHT","completion_criterion":"Sort and check the sample records","tags":["sample"]},
+    {"id":"foundation_task_2","milestone_id":"A2","domain":"Foundations","title":"Apply a simple rule to sample input","estimated_minutes":60,"intensity":"DEEP","prerequisite_task_ids":["foundation_task_1"],"completion_criterion":"Apply the rule and record the result","tags":["validation"]},
+    {"id":"analysis_task_1","milestone_id":"A3","domain":"Foundations","title":"Summarize a small sample dataset","estimated_minutes":60,"intensity":"DEEP","prerequisite_task_ids":["foundation_task_2"],"completion_criterion":"Compute and verify summary values","tags":["analysis"]},
+    {"id":"analysis_task_2","milestone_id":"A3","domain":"Foundations","title":"Compare two sample cases","estimated_minutes":45,"intensity":"LIGHT","prerequisite_task_ids":["analysis_task_1"],"completion_criterion":"Explain the observed difference","tags":["analysis"]},
+    {"id":"analysis_task_3","milestone_id":"A4","domain":"Foundations","title":"Document a repeatable analysis procedure","estimated_minutes":90,"intensity":"DEEP","prerequisite_task_ids":["analysis_task_2"],"completion_criterion":"Record steps and verify a rerun","tags":["procedure"]},
+    {"id":"modeling_task_1","milestone_id":"B1","domain":"Modeling","title":"Build a small reproducible model","estimated_minutes":45,"intensity":"LIGHT","completion_criterion":"Run the model and reproduce its output","tags":["modeling"]},
+    {"id":"modeling_task_2","milestone_id":"B2","domain":"Modeling","title":"Compare two model configurations","estimated_minutes":90,"intensity":"DEEP","prerequisite_task_ids":["modeling_task_1"],"completion_criterion":"Build both configurations and explain the difference","tags":["modeling"]},
+    {"id":"systems_task_1","milestone_id":"C1","domain":"Modeling","title":"Represent a process with a compact model","estimated_minutes":90,"intensity":"DEEP","prerequisite_task_ids":["modeling_task_2"],"completion_criterion":"State the variables, assumptions, and relationship","tags":["systems"]},
+    {"id":"quality_task_1","milestone_id":"D1","domain":"Review","title":"Check assumptions and verify outputs","estimated_minutes":90,"intensity":"DEEP","prerequisite_task_ids":["systems_task_1"],"completion_criterion":"Record checks and verify the expected output","tags":["quality"]},
+    {"id":"implementation_task_1","milestone_id":"E1","domain":"Projects","title":"Package and run a deterministic example","estimated_minutes":60,"intensity":"DEEP","completion_criterion":"Run the example from a clean temporary directory","tags":["implementation"]}
+  ]
+}

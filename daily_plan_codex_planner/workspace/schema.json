@@ -1,0 +1,1 @@
+{"type":"object","additionalProperties":false,"required":["intent","must_do","fixed_events","carryover","available_minutes","energy","missing_fields","overload","suggested_blocks","clarifying_question"]}

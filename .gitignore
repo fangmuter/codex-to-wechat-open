@@ -1,0 +1,52 @@
+# Python build and test by-products
+output/
+tmp/
+artifacts/
+__pycache__/
+*.py[cod]
+*.pyd
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage*
+htmlcov/
+
+# Runtime state, ledgers, locks, logs and encrypted local material
+*.db
+*.sqlite
+*.sqlite3
+*.db-shm
+*.db-wal
+*.jsonl
+*.log
+*.dat
+*.tmp
+
+# Local pilot/sandbox state (never publish runtime data)
+.grill/
+chat_agent_real_receive_pilot_state/
+phase15_sandbox_probe/
+phase17r_roadmap_pilot/
+phase*_pilot_state*/
+phase_c_*/
+phase_e_f_*/
+outside_canary/
+
+# Personal/local exports and user data
+READING_CATALOG_INPUT.json
+DAILY_PLAN_SHARED_STATE.json
+DAILY_PLAN_SHARED_SUMMARY.md
+
+# Local editor and environment files
+.env
+.env.*
+!.env.example
+.venv/
+venv/
+env/
+.idea/
+.vscode/
+
+# Optional local runtime data and user-provided catalogs
+local-state/
+runtime-data/

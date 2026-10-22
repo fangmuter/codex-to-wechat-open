@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "books": [
+    {
+      "book_id": "example-book-001",
+      "title": "《示例书籍》",
+      "queue_order": 1,
+      "status": "READING"
+    }
+  ],
+  "current_book_id": "example-book-001",
+  "default_daily_minutes": 25
+}

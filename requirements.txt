@@ -1,0 +1,2 @@
+# Runtime and test code use only the Python standard library.
+# Windows live credential operations additionally require Windows DPAPI.
