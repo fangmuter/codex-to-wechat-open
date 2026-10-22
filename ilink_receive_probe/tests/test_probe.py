@@ -1,4 +1,4 @@
-import json, tempfile, unittest
+import json, sys, tempfile, unittest
 from urllib.parse import urlsplit
 from ilink_receive_probe.probe.models import InboundEvent, Batch
 from ilink_receive_probe.probe.transport import FakeIlinkTransport
@@ -100,12 +100,16 @@ class ProbeTests(unittest.TestCase):
         event = parse_batch({'msgs':[{'message_id':'m1','text':'hello'}]}).messages[0]
         self.assertEqual(event.sender_fingerprint, '')
         self.assertEqual(event.bot_id, '')
+    @unittest.skipUnless(sys.platform == 'win32', 'Windows DPAPI is required')
     def test_dpapi_roundtrip(self):
         c=self.dpapi_store('FAKE_SECRET'); self.assertEqual(c.load(),'FAKE_SECRET'); self.assertNotEqual(c.path.read_bytes(),b'FAKE_SECRET')
+    @unittest.skipUnless(sys.platform == 'win32', 'Windows DPAPI is required')
     def test_dpapi_delete(self):
         c=self.dpapi_store('x'); c.delete(); self.assertFalse(c.path.exists())
+    @unittest.skipUnless(sys.platform == 'win32', 'Windows DPAPI is required')
     def test_dpapi_corrupt_fails(self):
         c=self.dpapi_store('x'); c.path.write_bytes(b'bad'); self.assertRaises(RuntimeError,c.load)
+    @unittest.skipUnless(sys.platform == 'win32', 'Windows DPAPI is required')
     def test_dpapi_metadata_no_secret(self):
         c=self.dpapi_store('FAKE_SECRET'); self.assertNotIn('FAKE_SECRET',c.meta.read_text())
     def test_real_transport_endpoint_allowlist(self): self.assertEqual(set(RealIlinkTransport.ALLOWED),{'get_bot_qrcode','get_qrcode_status','getupdates','notify_start'})
